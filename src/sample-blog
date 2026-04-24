@@ -1,0 +1,257 @@
+import React from "react";
+import Layout from "src/components/layout"
+import Seo from "src/components/seo"
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image"
+import { Container, Section, BreadCrumb } from "src/components/Section";
+import { Sidebar, SidebarCard, SidebarCardBody, SidebarCardTitle, SidebarForm } from "src/components/Sidebar";
+import { HeroBanner, HeroCover, HeroControler, HeroTitle } from "src/components/HeroInner";
+import RequestForm from "src/components/RequestForm";
+import BlogSearch from "src/components/BlogSearch";
+import BlogCard from "src/components/BlogCard";
+import RecentBlog from "src/components/BlogCard/RecentBlog";
+import styled from "styled-components";
+
+const Row = styled.div`
+  display:flex;
+  flex-wrap:wrap; 
+  margin:0 -10px;
+  @media(min-width:992px){
+    margin:0 -15px;
+  }  
+  @media(min-width:1600px){
+    margin:0 -30px;
+  }
+`;
+
+const ColLeft = styled.div`
+  position:relative;
+  width:100%;
+  padding:0 10px;
+  @media(min-width:992px){
+    padding:0 15px;
+  }  
+  @media(min-width:1200px){
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  @media(min-width:1600px){
+    padding:0 30px;
+    flex: 0 0 70%;
+    max-width: 70%;
+  }
+`;
+const ColRight = styled.div`
+  position:relative;
+  width:100%;
+  padding:0 10px;
+  @media(min-width:992px){
+    padding:0 15px;
+  }  
+  @media(min-width:1200px){
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  @media(min-width:1600px){
+    flex: 0 0 30%;
+    max-width: 30%;
+    padding:0 30px;
+  }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  column-gap:10px;
+  @media(min-width:992px){
+    grid-template-columns: auto auto;
+    column-gap:15px;
+  }  
+  @media(min-width:1600px){
+    column-gap:30px;
+  }
+
+`;
+const GridItem = styled.div`
+  
+`;
+const ListCardGrid = styled.div`
+  position:relative;
+`;
+const ListItemCard = styled.div`
+  .card{
+    border:none;
+    background-color:transparent;
+    padding:0;
+    border-radius:0;
+    text-align:left;
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    gap:10px;
+    margin:0;
+    height:auto;
+    .card-figure{
+      .gatsby-image-wrapper{
+        border-radius: 10px;
+      }
+    }
+    .card-body{     
+      padding:0;
+      .blog-name{
+        font-size:16px;
+        line-height:24px;
+        font-weight:500;
+        border-bottom:none;
+        padding-bottom:0;
+        margin-bottom:5px;
+        
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        a{
+          color:#fff;
+          &:hover{
+            color:#F32435;
+          }
+        }
+      }
+      .style-info{
+        margin-bottom:0;    
+        .style-item{
+          margin-bottom:0;
+          &:after{
+            background-color:#949494;
+          }
+        }
+      }
+    }
+  }
+  padding-bottom:20px;
+  margin-bottom:20px;
+  border-bottom:1px solid #0B0B0B;
+  &:last-child{
+    border:none;
+    padding-bottom:0;
+    margin-bottom:0;
+  }
+  `;
+
+const ButtonBadge = styled.button`
+  border:1px solid #F0F0F0;
+  background-color:#fff;
+  color:#2A2829;
+  display:flex;
+  flex-wrap:wrap;
+  border-radius:16px;
+  .text{
+    font-size:14px;
+    line-height:26px;
+    padding:2px 8px 2px 12px;
+  }
+  .count{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width:40px;
+    min-height:26px;
+    background-color: #252525;
+    border-radius:16px;
+    font-size:14px;
+    line-height:26px;
+    color:#fff;
+    margin:-1px;
+  }
+  &.selected{
+    border-color:#252525;
+    background-color:#252525;
+    color:#fff;
+    .count{
+      background-color:#F32435;
+    }
+  }
+  &:hover{
+    border-color:#252525;
+    background-color:#252525;    
+    color:#fff;
+    .count{
+      background-color:#F32435;
+    }
+  }
+`;
+
+const ListBadge = styled.div`
+ display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+  .badge {
+    margin: 10px;
+  }
+`;
+const BlogTemplate = ({ location }) => {
+  return (
+    <Layout>
+      <Seo title="ProSpan Steel" description="ProSpan Steel" />
+      <HeroBanner>
+        <HeroCover><StaticImage src="../images/contact-banner.jpg" alt="Blog" /></HeroCover>
+        <HeroControler>
+          <Container $maxWidth="1760px">
+            <BreadCrumb className="breadcrumb"><Link to="/">Home</Link><span>Blog</span></BreadCrumb>
+            <HeroTitle $mb="0">Blog</HeroTitle>
+          </Container>
+        </HeroControler>
+      </HeroBanner>
+      <Section className="section-blog" $bgcolor="#fff">
+        <Container>
+          <Row>
+            <ColLeft>
+              <Grid>
+                {[1, 2, 3, 4, 5].map((item) =>
+                  <GridItem key={item}><BlogCard /></GridItem>
+                )}
+              </Grid>
+            </ColLeft>
+            <ColRight>
+              <Sidebar className="isSticky">
+                <SidebarCard className="tw-bg-transparent">
+                  <SidebarForm><BlogSearch /></SidebarForm>
+                </SidebarCard>
+                <SidebarCard>
+                  <SidebarCardBody>
+                    <SidebarCardTitle>Recent Posts</SidebarCardTitle>
+                    <ListCardGrid>
+                      {[1, 2, 3, 4].map((i) =>
+                        <ListItemCard key={i}><RecentBlog /></ListItemCard>
+                      )}
+                    </ListCardGrid>
+                  </SidebarCardBody>
+                </SidebarCard>
+
+                <SidebarCard bkgColor="transparent">
+                  <SidebarCardBody>
+                    <SidebarCardTitle color="#252525">Blog Categories <hr /></SidebarCardTitle>
+                    <ListBadge>
+                      <ButtonBadge className="badge selected"><span className="text">All Blogs</span><span className="count">4</span></ButtonBadge>
+                      {["Commercial Building", "Barns", "Metal Buildings Homes", "Storage Buildings", "Carport"].map((item, index) =>
+                        <ButtonBadge className="badge" key={item}><span className="text">{item}</span><span className="count">{index + 1}</span></ButtonBadge>
+
+                      )}
+                    </ListBadge>
+                  </SidebarCardBody>
+                </SidebarCard>
+
+                <SidebarCard>
+                  <SidebarCardBody>
+                    <SidebarCardTitle $TextAlign="center">Quick Contact</SidebarCardTitle>
+                    <RequestForm location={location} />
+                  </SidebarCardBody>
+                </SidebarCard>
+              </Sidebar>
+            </ColRight>
+          </Row>
+        </Container>
+      </Section>
+    </Layout >
+  )
+}
+
+export default BlogTemplate

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+  },
+  "include": [
+    "src",
+    "src/blocks/BlockCommon/BlockCommonServiceAreaHero.js"
+  ]
+}
