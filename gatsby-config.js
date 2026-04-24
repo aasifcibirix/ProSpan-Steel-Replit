@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: '@sensei/gatsby-source-sensei',
       options: {
-        host: process.env.GATSBY_SENSEI_HOST,
+                apiUrl: process.env.GATSBY_SENSEI_HOST,
         spaceId: process.env.GATSBY_SENSEI_SPACE_ID,
         accessToken: process.env.GATSBY_SENSEI_ACCESS_TOKEN,
         environment: 'master',
