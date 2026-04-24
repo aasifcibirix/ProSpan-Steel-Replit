@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.0.0",
-    "@sensei/gatsby-source-sensei": "https://YOUR-SENSEI-HOST/api/sdk/sensei-gatsby-source-sensei-0.1.0.tgz",
+    "@sensei/gatsby-source-sensei": "https://sensei-studio-cms.replit.app/api/sdk/sensei-gatsby-source-sensei-0.1.0.tgz",
     "autoprefixer": "^10.4.21",
     "babel-plugin-styled-components": "^2.1.4",
     "dotenv": "^16.5.0",
