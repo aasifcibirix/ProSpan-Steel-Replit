@@ -14,10 +14,16 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: '@sensei/gatsby-source-sensei',
       options: {
-        "accessToken": process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
-        "spaceId": process.env.GATSBY_CONTENTFUL_SPACE_ID,
+        host: process.env.GATSBY_SENSEI_HOST,
+        spaceId: process.env.GATSBY_SENSEI_SPACE_ID,
+        accessToken: process.env.GATSBY_SENSEI_ACCESS_TOKEN,
+        environment: 'master',
+        // Keeps every existing `allContentful*` GraphQL query working
+        // unchanged — the source plugin emits both `Sensei*` and
+        // `Contentful*` node types when this is on.
+        contentfulCompat: true,
       }
     },
     "gatsby-plugin-root-import",

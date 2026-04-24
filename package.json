@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.0",
+    "@sensei/gatsby-source-sensei": "https://YOUR-SENSEI-HOST/api/sdk/sensei-gatsby-source-sensei-0.1.0.tgz",
     "autoprefixer": "^10.4.21",
     "babel-plugin-styled-components": "^2.1.4",
-    "contentful-management": "^11.54.4",
     "dotenv": "^16.5.0",
     "gatsby": "^5.14.1",
     "gatsby-plugin-canonical-urls": "^5.15.0",
@@ -33,7 +33,6 @@
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-plugin-sitemap": "^6.14.0",
     "gatsby-plugin-styled-components": "^6.14.0",
-    "gatsby-source-contentful": "^8.15.0",
     "gatsby-source-filesystem": "^5.14.0",
     "gatsby-transformer-remark": "^6.14.0",
     "gatsby-transformer-sharp": "^5.14.0",
